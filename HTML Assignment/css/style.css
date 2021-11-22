@@ -1,0 +1,186 @@
+.h-100{
+    height: 400px !important;
+}
+.w-100{
+    width: 100%;
+}
+
+body{
+    background-color: #d3d7db;
+}
+
+.resort-name{
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+.review{
+    font-size: medium;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+.blue-text{
+    color: dodgerblue;
+}
+
+.parent-img{
+    position: relative;
+}
+
+.upper-img-txt{
+    position:absolute;
+    top:30px;
+    right: 10px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 4px;
+    font-size: medium;
+}
+
+.lower-img-text{
+    position:absolute;
+    bottom:30px;
+    left: 10px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+.lower-heart{
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.8);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.col-5{
+    width: 41.66%;
+    float: left;
+}
+
+.col-7{
+    width: 58.33%;
+    padding-top: 10px;
+}
+
+.col-12{
+    width: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.nav-row{
+    background-color: white;
+    height: 65px;
+    border-bottom: silver 1px solid;
+}
+.height-50{
+    height: 60px;
+}
+
+.under-nav{
+    background-color: white;
+    height:50px;
+}
+.USA{
+    color:coral;
+    margin-left: 20px;
+}
+
+.big-hide{
+    display: block;
+    width: 100%;
+}
+
+.smallHide
+{
+    width: 100%;
+    display: none;
+}
+
+.small-nav{
+    background-color: white;
+    height: 65px;
+}
+
+.right-float{
+    float: right !important;
+} 
+
+.under-nav1{
+    width: 100%;
+    height: 50px;
+    background-color: dodgerblue;
+}
+
+.center-float{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.bg-white{
+    background-color: floralwhite;
+}
+.bg-orange{
+    background-color: orange;
+}
+
+.bg-dark-gray{
+    background-color:#1d516e;
+}
+
+
+.dropdown {
+    position: relative !important;
+    display: inline-block !important; 
+  }
+
+.dropbtn {
+    background-color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 15;
+}
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+
+@media screen and (max-width: 962px){
+    .big-hide{
+        display: none;
+    }
+    .smallHide{
+        display: block;
+        width: 100%;
+    }
+    .dropdown-content{
+        position: absolute;
+        right: 0%;
+    }
+}
