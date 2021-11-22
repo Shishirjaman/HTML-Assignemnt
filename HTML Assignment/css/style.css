@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .h-100{
     height: 400px !important;
 }
@@ -171,7 +176,7 @@ body{
   .dropdown-content a:hover {background-color: #ddd;}
 
 
-@media screen and (max-width: 962px){
+@media screen and (max-width: 965px){
     .big-hide{
         display: none;
     }
@@ -182,5 +187,25 @@ body{
     .dropdown-content{
         position: absolute;
         right: 0%;
+        width: 100%;
+    }
+    .m-none{
+        margin-left: 0.3%;
+        margin-right: 0.3%;
+    } 
+    .p-none{
+        padding-left: 0.3%;
+        padding-right: 0.3%;
+    }
+}
+
+@media screen and (max-width:380px){
+    .m-none{
+        margin-left: 0.1%;
+        margin-right: 0.1%;
+    } 
+    .p-none{
+        padding-left: 0.1%;
+        padding-right: 0.1%;
     }
 }
