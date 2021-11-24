@@ -10,18 +10,33 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hotel-datepicker@4.0.2/dist/css/hotel-datepicker.css"/>
+
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/fecha@4.2.1/lib/fecha.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/hotel-datepicker@4.0.2/dist/js/hotel-datepicker.min.js"></script>
+    
 
 </head>
 
 <body>
 
+    <div class="alert alert-light" role="alert">
+        <p id="place"></p>
+      </div>
+
 <!-- navbar for desktop screen start here. -->
 
     <div class="big-hide">
         <nav>
-            <div class="nav-row">
-                <div class="col-5">
+            <div class="nav-row row">
+                <div class="col col-sm-5">
                     <div class="dropdown">
                         <button class="dropbtn" id="dropdownBtn1" value="btn"><i class="fas fa-bars btn ham-bar"></i></button>
 
@@ -38,13 +53,42 @@
                     <img src="images/logo.png" alt="logo_image" class="height-50 ml-2">
                 </div>
 
-                <div class="col-7 float-right">
+                <div class="col col-sm-7 float-right">
                     <div class="float-right">
-                        <button class="btn btn-custom"> <i class="fas fa-search"></i> Arizona, USA</button>
-                        <button class="btn btn-custom"> <i class="far fa-calendar-alt"></i> Check IN</button>
-                        <button class="btn btn-custom">Check OUT</button>
-                        <button class="btn btn-warning bg-orange text-white">Search</button>
-                        <button class="btn btn-dark bg-dark-gray">Filters</button>
+                        <button class="custom-input"> <i class="fas fa-search search-icon"></i> <input type="text" class="inputField" id="searchInput" placeholder="Arizona, USA"></button>
+                        
+                        <i class="far fa-calendar-alt"></i>
+                        <input class="btn btn-default date" id="input-id" placeholder="Check IN > check OUT" value="" type="text">
+                        
+                        <!-- <input type="text" id="input-id"> -->
+                        <div class="dropdown">
+                            <input class="btn dropbtn" id="dropdownBtn3" value="Guest" placeholder="Guest"/>
+                            <div class="dropdown-content2 float-left" id="dropdownContent3">
+                                <a href="#">Guest:</a>
+                                <a href="#"><i class="fas fa-minus-circle fa-lg" id="minus" style="color: red;"></i></a>
+                                <a href="#" id="counter"></a>
+                                <a href="#"><i class="fas fa-plus-circle fa-lg" id="plus" style="color: seagreen;"></i></a>
+                                <button class="btn btn-info" id="submit">Apply</button>
+                          
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <input class="btn dropbtn" id="dropdownBtn4" value="Price range" placeholder="Price range"/>
+                            <div class="dropdown-content3 p-3 float-left" id="dropdownContent4">
+                                <input type="text" class="btn" value="price range:" placeholder="price range" id="priceRange" style="text-align: left; width: 100%;">
+                                <label for="customRange1" class="form-label" id="minrange" style="display: block;">Min Range: </label>
+                                <input type="range" class="form-range" min="0" max="50000" id="customRange1" style="display: block; width: 100%; margin: 5px; padding: 5px;">
+                                <label for="customRange2" class="form-label" id="maxrange" style="display: block;">Max range:</label>
+                                <input type="range" class="form-range" min="0" max="50000" id="customRange2" style="display: block; width: 100%; margin: 5px; padding: 5px;">
+                                <button class="btn btn-warning" id="price" style="float: right;">Apply</button>
+                          
+                            </div>
+                        </div>
+
+                        <!-- <button class="btn btn-default">Price-range</button> -->
+                        <button class="btn btn-warning bg-orange text-white" id="search">Search</button>
+                        <!-- <button class="btn btn-dark bg-dark-gray">Filters</button> -->
                     </div>
 
                 </div>
@@ -65,12 +109,12 @@
 
     <div class="smallHide">
         <nav class="small-nav">
-            <div class="navRow">
-                <div class="col-5 nav-item">
+            <div class="navRow row">
+                <div class="col col-sm-5 nav-item">
                     <img src="images/logo.png" alt="Logo Image" class="height-50">
                 </div>
 
-                <div class="col-7 nav-item float-right">
+                <div class="col col-sm-7 nav-item float-right">
                     <div class="justify-content-end float-right">
 
                         <div class="dropdown">
@@ -93,16 +137,16 @@
         </nav>
 
         <div class="under-nav1">
-            <div class="col-12 center-float">
-                <button class="btn btn-custom bg-white"> <i class="fas fa-search"></i> Arizona, USA</button>
-                <button class="btn btn-custom bg-white"> <i class="far fa-calendar-alt"></i> Check IN</button>
-                <button class="btn btn-custom bg-white">Check OUT</button>
-                <button class="btn btn-dark bg-dark-gray">Filters</button>
+            <div class="col-12 col-sm-12 center-float align-items-center">
+                <button class="btn btn-custom bg-white m-none p-none"> <i class="fas fa-search"></i> Arizona, USA</button>
+                <button class="btn btn-custom bg-white m-none p-none"> <i class="far fa-calendar-alt"></i> Check IN</button>
+                <button class="btn btn-custom bg-white m-none p-none">Check OUT</button>
+                <button class="btn btn-dark bg-dark-gray m-none p-none">Filters</button>
             </div>
         </div>
 
         <div class="under-nav">
-            <div class="col-12">
+            <div class="col-12 col-sm-12">
                 <span>Vecation Rentals in Arizona</span>
                 <span class="USA">| USA > Arizona</span>
             </div>
@@ -119,8 +163,8 @@
 
 <!-- first row of the card sections starts. -->
 
-        <div class="row py-3">
-            <div class="col-md-4 col-sm-12">
+        <div class="row row-sm py-3">
+            <div class="col col-md-4 col-sm-12">
                 <div class="card">
                     <div class="card card-header">
                         <div class="parent-img">
@@ -476,11 +520,19 @@
 <!-- second row of the card sections ends. -->
     </section>
 
+    <script>
+        // var hdpkr = new HotelDatepicker(document.getElementById("input-id"));
+    </script>
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyArTUpPxK58U3xCnOuoFYGMtLfce4S0Ok4"></script>
     <script src="js/script.js"></script>
+
+
+    
 </body>
 
 </html>
