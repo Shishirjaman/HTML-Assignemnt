@@ -95,7 +95,7 @@ var price = document.getElementById('price');
 
 price.onclick = function(){
     dropdownContent4 = document.getElementById('dropdownContent4');
-    if(minrange!=0 && maxrange!=0){
+    if(maxrange!=0){
       document.getElementById('dropdownBtn4').value = "$"+minrange+"-"+"$"+maxrange;
       document.getElementById('minrange').innerHTML = "Min Range: $"+"0";
       document.getElementById('maxrange').innerHTML = "Max Range: $"+"0";
@@ -121,6 +121,8 @@ cancelPrice.onclick = function(){
   priceRange.value = "Price Range: $"+"0"+"-"+"$"+"0";
   document.getElementById('customRange1').value = "0";
   document.getElementById('customRange2').value = "0";  
+  minrange = 0;
+  maxrange = 0;
 
   dropdownContent4.style.display = "none";
 }
@@ -231,11 +233,16 @@ dropdownBtn1.onmouseout =function(){
 
 
 
-
 // Place search section start here
 
 var place;
-$(document).ready(function(){
+var cnt = 0;
+var inputField = document.getElementById("searchInput");
+
+inputField.onkeyup = function(){
+  var word = document.getElementById("searchInput").value;
+  cnt = word.length;
+  if(cnt >= 2){
     var autocomplete;
     autocomplete = new google.maps.places.Autocomplete((document.getElementById('searchInput')),{
         types: ['geocode'],
@@ -245,8 +252,9 @@ $(document).ready(function(){
         place = autocomplete.getPlace();
         console.log(place.formatted_address);
     });
-    
-});
+  }
+}
+
 
 // place search section end here
 
@@ -264,7 +272,6 @@ dateInput.onblur = function(){
     console.log(date);
 }
 // console.log(hdpkr);
-console.log(hdpkr.getValue());
 
 //Calander section end here
 
@@ -353,8 +360,20 @@ search.onclick = function(){
     var location = document.getElementById('location');
     location.innerHTML ="Search : " + place.formatted_address;
     
-    var checkIn = ;
-    var checkOut= ;
+    var checkIn = document.getElementById('checkIn');
+    var checkOut = document.getElementById("checkOut");
+
+    var date = hdpkr.getValue();
+    var checkinDate = date.slice(0,10);
+    var checkoutDate = date.slice(-10);
+    checkIn.innerHTML = "CheckIn : "+checkinDate;
+    checkOut.innerHTML = "CheckOut : "+checkoutDate;
+    
+    var showGuest = document.getElementById("showGuest");
+    showGuest.innerHTML ="Guests : " + count;
+
+    var showPrice = document.getElementById("showPrice");
+    showPrice.innerHTML = "Price range : "+minrange+" - "+maxrange;
 }
 
 
