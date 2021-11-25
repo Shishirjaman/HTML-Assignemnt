@@ -27,16 +27,15 @@
 
 <body>
 
-    <div class="alert alert-light" role="alert">
-        <p id="place"></p>
-      </div>
 
+
+ <div class="body-section">     
 <!-- navbar for desktop screen start here. -->
 
     <div class="big-hide">
         <nav>
             <div class="nav-row row">
-                <div class="col col-sm-5">
+                <div class="col col-sm-3">
                     <div class="dropdown">
                         <button class="dropbtn" id="dropdownBtn1" value="btn"><i class="fas fa-bars btn ham-bar"></i></button>
 
@@ -53,41 +52,44 @@
                     <img src="images/logo.png" alt="logo_image" class="height-50 ml-2">
                 </div>
 
-                <div class="col col-sm-7 float-right">
+                <div class="col col-sm-9 float-right">
                     <div class="float-right">
                         <button class="custom-input"> <i class="fas fa-search search-icon"></i> <input type="text" class="inputField" id="searchInput" placeholder="Arizona, USA"></button>
-                        
+                        <span class="custom">
                         <i class="far fa-calendar-alt"></i>
                         <input class="btn btn-default date" id="input-id" placeholder="Check IN > check OUT" value="" type="text">
-                        
+                        </span>
                         <!-- <input type="text" id="input-id"> -->
                         <div class="dropdown">
-                            <input class="btn dropbtn" id="dropdownBtn3" value="Guest" placeholder="Guest"/>
-                            <div class="dropdown-content2 float-left" id="dropdownContent3">
+                            <!-- <span class="custom"> -->
+                            <input class="btn dropbtn" id="dropdownBtn3" value="" placeholder="Guest"/>
+                            <!-- </span> -->
+                            <div class="dropdown-content2 p-4 float-left" id="dropdownContent3">
                                 <a href="#">Guest:</a>
-                                <a href="#"><i class="fas fa-minus-circle fa-lg" id="minus" style="color: red;"></i></a>
+                                <a href="#"><i class="fas fa-minus-circle fa-2x" id="minus" style="color: red;"></i></a>
                                 <a href="#" id="counter"></a>
-                                <a href="#"><i class="fas fa-plus-circle fa-lg" id="plus" style="color: seagreen;"></i></a>
-                                <button class="btn btn-info" id="submit">Apply</button>
-                          
+                                <a href="#"><i class="fas fa-plus-circle fa-2x" id="plus" style="color: seagreen;"></i></a>
+                                <button class="btn btn-success" id="submit">Apply</button>
+                                <button class="btn btn-warning" id="cancelGuest">Cancel</button>
                             </div>
                         </div>
                         
                         <div class="dropdown">
                             <input class="btn dropbtn" id="dropdownBtn4" value="Price range" placeholder="Price range"/>
                             <div class="dropdown-content3 p-3 float-left" id="dropdownContent4">
-                                <input type="text" class="btn" value="price range:" placeholder="price range" id="priceRange" style="text-align: left; width: 100%;">
+                                <input type="text" class="btn" value="" placeholder="price range" id="priceRange" style="text-align: left; width: 100%;">
                                 <label for="customRange1" class="form-label" id="minrange" style="display: block;">Min Range: </label>
-                                <input type="range" class="form-range" min="0" max="50000" id="customRange1" style="display: block; width: 100%; margin: 5px; padding: 5px;">
+                                <input type="range" class="form-range" min="0" max="50000" value="0" id="customRange1" style="display: block; width: 100%; margin: 5px; padding: 5px;">
                                 <label for="customRange2" class="form-label" id="maxrange" style="display: block;">Max range:</label>
-                                <input type="range" class="form-range" min="0" max="50000" id="customRange2" style="display: block; width: 100%; margin: 5px; padding: 5px;">
+                                <input type="range" class="form-range" min="0" max="50000" value="0" id="customRange2" style="display: block; width: 100%; margin: 5px; padding: 5px;">
                                 <button class="btn btn-warning" id="price" style="float: right;">Apply</button>
+                                <button class="btn btn-danger mr-1" id="cancelPrice" style="float: right;">Cancel</button>
                           
                             </div>
                         </div>
 
                         <!-- <button class="btn btn-default">Price-range</button> -->
-                        <button class="btn btn-warning bg-orange text-white" id="search">Search</button>
+                        <button class="btn btn-warning bg-orange text-white" data-toggle="modal" data-target="#exampleModal" id="search">Search</button>
                         <!-- <button class="btn btn-dark bg-dark-gray">Filters</button> -->
                     </div>
 
@@ -520,9 +522,52 @@
 <!-- second row of the card sections ends. -->
     </section>
 
-    <script>
-        // var hdpkr = new HotelDatepicker(document.getElementById("input-id"));
-    </script>
+</div>
+
+<div class="map-button">
+    <button class="btn btn-info rounded-circle bg-dark-gray"  id="mapButton"><i class="fas fa-map-marked-alt fa-2x"></i></button>
+</div>
+
+<div class="cancel-map-buttoon">
+    <button class="btn btn-danger rounded-circle" id="cancelMapButton"><i class="fas fa-times fa-2x"></i></button>
+</div>
+    
+
+
+    <section class="container">
+        <div class="map-section" id="mapSection">
+            <div id="map" class="map"></div>
+        </div>
+    </section>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Search Result</h5>
+              <button type="button" class="close btn-danger" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <p id="location"></p>
+                <p id="checkIn"></p>
+                <p id="checkOut"></p>
+                <p id="showGuest"></p>
+                <p id="showPrice"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
